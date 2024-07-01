@@ -1,7 +1,7 @@
 THIS_DIR      := $(shell dirname $(abspath $(lastword $(MAKEFILE_LIST))))
 SOURCE_DIR    := $(abspath $(THIS_DIR)/../../)
-BUILD_DIR     := $(SOURCE_DIR)/out
-RELEASE_DIR   := $(SOURCE_DIR)/out/release
+BUILD_DIR     := $(THIS_DIR)/out
+RELEASE_DIR   := $(THIS_DIR)/out/release
 PROJ_NAME     := bsp_cunit
 
 C_FILES       += $(SOURCE_DIR)/projects/linux/main.c
