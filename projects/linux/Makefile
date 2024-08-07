@@ -13,7 +13,12 @@ CFLAGS        += -I$(SOURCE_DIR)/bsp/utils/ring_buff/include
 CFLAGS        += -I$(SOURCE_DIR)/test/CUnit/include
 
 C_FILES       += $(SOURCE_DIR)/test/case/utils/ring_buff/cunit_ring_buff.c
-CFLAGS        += -I$(SOURCE_DIR)/test/case/utils/ring_buff/
+CFLAGS        += -I$(SOURCE_DIR)/test/case/utils/ring_buff
+
+C_FILES       += $(SOURCE_DIR)/bsp/utils/signal_generator/source/signal_generator.c
+CFLAGS        += -I$(SOURCE_DIR)/bsp/utils/signal_generator/include
+C_FILES       += $(SOURCE_DIR)/test/case/utils/signal_generator/cunit_signal_generator.c
+CFLAGS        += -I$(SOURCE_DIR)/test/case/utils/signal_generator
 
 LDFLAGS       += -L$(SOURCE_DIR)/test/CUnit/lib -lcunit
 

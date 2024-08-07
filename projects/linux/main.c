@@ -6,6 +6,7 @@
 #include "CUnit/CUnit.h"
 #include "CUnit/Basic.h"
 #include "cunit_ring_buff.h"
+#include "cunit_signal_generator.h"
 
 int main(void)
 {
@@ -19,6 +20,12 @@ int main(void)
     }
 
     ret = cunit_ring_buff_register_suite_and_case();
+    if (ret)
+    {
+        return ret;
+    }
+
+    ret = cunit_signal_generator_register_suite_and_case();
     if (ret)
     {
         return ret;
