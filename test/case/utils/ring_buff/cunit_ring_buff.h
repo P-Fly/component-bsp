@@ -24,6 +24,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-extern int32_t cunit_ring_buff_register_suite_and_case(void);
+extern int32_t cunit_ring_buffer_register_suite_and_case(void);
 
 #endif /* __CUNIT_RING_BUFF_H__ */

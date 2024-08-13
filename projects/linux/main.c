@@ -19,7 +19,7 @@ int main(void)
         return -EINVAL;
     }
 
-    ret = cunit_ring_buff_register_suite_and_case();
+    ret = cunit_ring_buffer_register_suite_and_case();
     if (ret)
     {
         return ret;

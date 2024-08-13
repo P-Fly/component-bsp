@@ -1,6 +1,6 @@
 /**
- * @file include/log.h
- * @brief Generic error number.
+ * @file log.h
+ * @brief Provides a series of standard logging output interfaces.
  * @author Peter.Peng <27144363@qq.com>
  * @date 2022
  *
@@ -24,11 +24,22 @@
 #ifndef __LOG_H__
 #define __LOG_H__
 
+/**
+ * @defgroup log_interface Log Interface
+ *
+ * @brief Standard logging output interfaces.
+ *
+ * @ingroup common_group
+ *
+ * @{
+ *
+ */
+
 #include <stdio.h>
 #include "trace_impl.h"
 
-#define RED_LABEL    "\033[47;31m"
-#define NORMAL_LABEL "\033[0m"
+#define RED_LABEL    "\033[47;31m"  /**< Define the text color as red as the console output. */
+#define NORMAL_LABEL "\033[0m"      /**< Recover the console output to normal color. */
 
 /**
  * Log an error message.
@@ -74,5 +85,9 @@
  * No message to print.
  */
 #define pr_no_mesg(...)
+
+/**
+ * @}
+ */
 
 #endif /* __LOG_H__ */

@@ -1,6 +1,6 @@
 /**
- * @file utils/ring_buff/include/ring_buff.h
- * @brief A ring buffer util.
+ * @file ring_buff.h
+ * @brief A ring buffer.
  * @author Peter.Peng <27144363@qq.com>
  * @date 2022
  *
@@ -24,15 +24,21 @@
 #ifndef __RING_BUFF_H__
 #define __RING_BUFF_H__
 
+/**
+ * @defgroup ring_buffer Ring Buffer
+ *
+ * @brief A simple ring buffer.
+ *
+ * @ingroup utils_group
+ *
+ * @{
+ *
+ */
+
 #include <stddef.h>
 #include <stdint.h>
-#include <assert.h>
-#include "err.h"
 
 #ifndef DOC_HIDDEN
-/**
- * @brief   Ring buffer definition.
- */
 typedef struct
 {
     int32_t     front;
@@ -41,9 +47,6 @@ typedef struct
     int32_t     cnt;
     uint8_t*    buffer;
 } ring_buff_t;
-
-#define is_empty(ring) ((ring)->cnt == 0)
-#define is_full(ring)  ((ring)->cnt == (ring)->size)
 #endif
 
 /**
@@ -54,32 +57,7 @@ typedef struct
  *
  * @retval  Returns 0 on success, negative error code otherwise.
  */
-static inline int32_t ring_buffer_read(ring_buff_t* ring, uint8_t* value)
-{
-    if (!ring)
-    {
-        return -EINVAL;
-    }
-
-    if (!value)
-    {
-        return -EINVAL;
-    }
-
-    assert(ring->buffer);
-    assert(ring->size);
-
-    if (is_empty(ring))
-    {
-        return -EEMPTY;
-    }
-
-    *value = ring->buffer[ring->front];
-    ring->front = (ring->front + 1) % ring->size;
-    ring->cnt--;
-
-    return 0;
-}
+extern int32_t ring_buffer_read(ring_buff_t* ring, uint8_t* value);
 
 /**
  * @brief   Write data and increment the write pointer.
@@ -89,27 +67,7 @@ static inline int32_t ring_buffer_read(ring_buff_t* ring, uint8_t* value)
  *
  * @retval  Returns 0 on success, negative error code otherwise.
  */
-static inline int32_t ring_buffer_write(ring_buff_t* ring, uint8_t value)
-{
-    if (!ring)
-    {
-        return -EINVAL;
-    }
-
-    assert(ring->buffer);
-    assert(ring->size);
-
-    if (is_full(ring))
-    {
-        return -EFULL;
-    }
-
-    ring->buffer[ring->rear] = value;
-    ring->rear = (ring->rear + 1) % ring->size;
-    ring->cnt++;
-
-    return 0;
-}
+extern int32_t ring_buffer_write(ring_buff_t* ring, uint8_t value);
 
 /**
  * @brief   Initialize the ring buffer.
@@ -120,32 +78,11 @@ static inline int32_t ring_buffer_write(ring_buff_t* ring, uint8_t value)
  *
  * @retval  Returns 0 on success, negative error code otherwise.
  */
-static inline int32_t ring_buffer_init(ring_buff_t* ring,
-                                       uint8_t*     buffer,
-                                       int32_t      size)
-{
-    if (!ring)
-    {
-        return -EINVAL;
-    }
+extern int32_t ring_buffer_init(ring_buff_t* ring, uint8_t* buffer,
+                                int32_t size);
 
-    if (!buffer)
-    {
-        return -EINVAL;
-    }
-
-    if (!size)
-    {
-        return -EINVAL;
-    }
-
-    ring->front = 0;
-    ring->rear = 0;
-    ring->buffer = buffer;
-    ring->size = size;
-    ring->cnt = 0;
-
-    return 0;
-}
+/**
+ * @}
+ */
 
 #endif /* __RING_BUFF_H__ */

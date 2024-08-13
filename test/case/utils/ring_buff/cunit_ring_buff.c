@@ -26,12 +26,12 @@
 #include "CUnit/Basic.h"
 #include "cunit_ring_buff.h"
 
-static int cunit_ring_buff_initialize(void)
+static int cunit_ring_buffer_initialize(void)
 {
     return 0;
 }
 
-static int cunit_ring_buff_cleanup(void)
+static int cunit_ring_buffer_cleanup(void)
 {
     return 0;
 }
@@ -115,14 +115,14 @@ static void cunit_ring_buffer_function_case_0(void)
     CU_ASSERT_EQUAL(ret, -EEMPTY);
 }
 
-int32_t cunit_ring_buff_register_suite_and_case(void)
+int32_t cunit_ring_buffer_register_suite_and_case(void)
 {
     CU_pSuite new_suite;
     CU_pTest new_test;
 
     new_suite = CU_add_suite("ring_buff",
-                             cunit_ring_buff_initialize,
-                             cunit_ring_buff_cleanup);
+                             cunit_ring_buffer_initialize,
+                             cunit_ring_buffer_cleanup);
     if (!new_suite)
     {
         return -EINVAL;

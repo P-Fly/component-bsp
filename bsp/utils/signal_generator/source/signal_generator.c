@@ -1,4 +1,9 @@
 /**
+ * @file signal_generator.c
+ * @brief A simple signal generator.
+ * @author Peter.Peng <27144363@qq.com>
+ * @date 2022
+ *
  * Embedded Device Software
  * Copyright (C) 2022 Peter.Peng
  *
@@ -18,6 +23,7 @@
 
 #include <assert.h>
 #include <math.h>
+#include "err.h"
 #include "signal_generator.h"
 
 #define DEF_PI   3.14159265358979f

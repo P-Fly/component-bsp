@@ -1,5 +1,5 @@
 /**
- * @file include/err.h
+ * @file err.h
  * @brief Generic error number.
  * @author Peter.Peng <27144363@qq.com>
  * @date 2022
@@ -23,6 +23,17 @@
 
 #ifndef __ERR_H__
 #define __ERR_H__
+
+/**
+ * @defgroup error_number Error Number
+ *
+ * @brief Standard error number.
+ *
+ * @ingroup common_group
+ *
+ * @{
+ *
+ */
 
 #define EPERM        1  /**< Operation not permitted */
 #define ENOENT       2  /**< No such file or directory */
@@ -63,5 +74,9 @@
 #define EEMPTY      102 /**< Device buffer is empty */
 #define EFULL       103 /**< Device buffer is full */
 #define ENOCHANGE   104 /**< Data is not changed */
+
+/**
+ * @}
+ */
 
 #endif /* __ERR_H__ */

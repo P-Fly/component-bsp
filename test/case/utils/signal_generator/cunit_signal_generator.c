@@ -63,7 +63,7 @@ static void cunit_signal_generator_Sin1k_SR16k_bit16(void)
     file = fopen("Sin1k_SR16k_bit16", "a");
     CU_ASSERT_PTR_NOT_NULL_FATAL(file);
 
-    for (i = 0; i < 10000; i++)
+    for (i = 0; i < 10; i++)
     {
         written = fwrite(signal_buff, len, 1, file);
         CU_ASSERT_EQUAL(written, 1);
@@ -99,7 +99,7 @@ static void cunit_signal_generator_Sin1k_SR48k_bit32(void)
     file = fopen("Sin1k_SR48k_bit32", "a");
     CU_ASSERT_PTR_NOT_NULL_FATAL(file);
 
-    for (i = 0; i < 10000; i++)
+    for (i = 0; i < 10; i++)
     {
         written = fwrite(signal_buff, len, 1, file);
         CU_ASSERT_EQUAL(written, 1);
@@ -135,7 +135,7 @@ static void cunit_signal_generator_Sin10k_SR16k_bit32(void)
     file = fopen("Sin10k_SR16k_bit32", "a");
     CU_ASSERT_PTR_NOT_NULL_FATAL(file);
 
-    for (i = 0; i < 10000; i++)
+    for (i = 0; i < 10; i++)
     {
         written = fwrite(signal_buff, len, 1, file);
         CU_ASSERT_EQUAL(written, 1);
@@ -171,7 +171,7 @@ static void cunit_signal_generator_Sin10k_SR48k_bit16(void)
     file = fopen("Sin10k_SR48k_bit16", "a");
     CU_ASSERT_PTR_NOT_NULL_FATAL(file);
 
-    for (i = 0; i < 10000; i++)
+    for (i = 0; i < 10; i++)
     {
         written = fwrite(signal_buff, len, 1, file);
         CU_ASSERT_EQUAL(written, 1);

@@ -1,0 +1,53 @@
+PROJECT_NAME          = "Reference document for the BSP component"
+PROJECT_NUMBER        = @VERSION@
+OUTPUT_DIRECTORY      = @BUILD_DOC_DIR@/doxygen
+GENERATE_LATEX        = YES
+GENERATE_MAN          = NO
+GENERATE_RTF          = NO
+
+CASE_SENSE_NAMES      = NO                      # Set to NO means only generate file names in lower-case letters.
+
+RECURSIVE             = YES
+FILE_PATTERNS         = *.c *.h
+INPUT                 = index.doxygen \
+                        @top_srcdir@/bsp/include \
+                        @top_srcdir@/bsp/utils/ring_buff/include \
+                        @top_srcdir@/bsp/utils/signal_generator/include
+# EXCLUDE               =
+# EXAMPLE_PATH          =
+# IMAGE_PATH            =
+
+FULL_PATH_NAMES       = YES
+STRIP_FROM_PATH       = ../../../               # Specify absolute paths or relative paths, which will be relative from the directory where doxygen is started.
+STRIP_FROM_INC_PATH   = ../../../               # Specify absolute paths or relative paths, which will be relative from the directory where doxygen is started.
+
+QUIET                 = YES
+
+EXTRACT_ALL           = NO                      # Only generate documentation for documented entities.
+EXTRACT_STATIC        = NO
+
+SHOW_INCLUDE_FILES    = YES
+JAVADOC_AUTOBRIEF     = NO
+JAVADOC_BANNER        = NO
+INHERIT_DOCS          = YES
+ENABLED_SECTIONS      = ""
+ENABLE_PREPROCESSING  = YES
+MACRO_EXPANSION       = YES
+EXPAND_ONLY_PREDEF    = YES
+
+PREDEFINED            = DOXYGEN PIC "DOC_HIDDEN" "__attribute__(x)="
+
+OPTIMIZE_OUTPUT_FOR_C = YES                     # doxygen 1.2.6 option
+TYPEDEF_HIDES_STRUCT  = YES                     # needed in doxygen >= 1.5.4
+
+HTML_TIMESTAMP        = NO
+GENERATE_TREEVIEW     = YES
+SOURCE_BROWSER        = YES
+VERBATIM_HEADERS      = YES
+
+DISTRIBUTE_GROUP_DOC  = YES                     # Set to YES means reuse the documentation of the first member in the group for the other members.
+
+USE_MATHJAX           = YES
+
+PDF_HYPERLINKS        = YES
+USE_PDFLATEX          = YES
