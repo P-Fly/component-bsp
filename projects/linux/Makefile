@@ -15,13 +15,16 @@ CFLAGS        += -I$(SOURCE_DIR)/bsp/include
 CFLAGS        += -I$(SOURCE_DIR)/bsp/platform/linux/infra/trace/include
 CFLAGS        += -I$(SOURCE_DIR)/bsp/utils/ring_buff/include
 CFLAGS        += -I$(SOURCE_DIR)/bsp/utils/signal_generator/include
+CFLAGS        += -I$(SOURCE_DIR)/bsp/utils/list/include
 
 C_FILES       += $(SOURCE_DIR)/test/case/utils/ring_buff/cunit_ring_buff.c
 C_FILES       += $(SOURCE_DIR)/test/case/utils/signal_generator/cunit_signal_generator.c
+C_FILES       += $(SOURCE_DIR)/test/case/utils/list/cunit_list.c
 
 CFLAGS        += -I$(SOURCE_DIR)/test/CUnit/include
 CFLAGS        += -I$(SOURCE_DIR)/test/case/utils/ring_buff
 CFLAGS        += -I$(SOURCE_DIR)/test/case/utils/signal_generator
+CFLAGS        += -I$(SOURCE_DIR)/test/case/utils/list
 
 LDFLAGS       += -L$(SOURCE_DIR)/test/CUnit/lib -lcunit
 

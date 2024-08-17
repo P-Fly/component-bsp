@@ -30,14 +30,14 @@ This repository releases embedded BSP containing platform-specific code and some
 */
 
 /**
- * @defgroup common_group Common group
+ * @defgroup common_group Common
  *
  * @brief Common headers.
  *
  */
 
 /**
- * @defgroup utils_group Utils group
+ * @defgroup utils_group Utils
  *
  * @brief Some practical utilities.
  *

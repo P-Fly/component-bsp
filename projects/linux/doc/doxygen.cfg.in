@@ -12,7 +12,8 @@ FILE_PATTERNS         = *.c *.h
 INPUT                 = index.doxygen \
                         @top_srcdir@/bsp/include \
                         @top_srcdir@/bsp/utils/ring_buff/include \
-                        @top_srcdir@/bsp/utils/signal_generator/include
+                        @top_srcdir@/bsp/utils/signal_generator/include \
+                        @top_srcdir@/bsp/utils/list/include
 # EXCLUDE               =
 # EXAMPLE_PATH          =
 # IMAGE_PATH            =
@@ -24,7 +25,7 @@ STRIP_FROM_INC_PATH   = ../../../               # Specify absolute paths or rela
 QUIET                 = YES
 
 EXTRACT_ALL           = NO                      # Only generate documentation for documented entities.
-EXTRACT_STATIC        = NO
+EXTRACT_STATIC        = YES
 
 SHOW_INCLUDE_FILES    = YES
 JAVADOC_AUTOBRIEF     = NO
