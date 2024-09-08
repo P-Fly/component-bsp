@@ -20,6 +20,7 @@
 #include <stdint.h>
 #include <string.h>
 #include "cmsis_os.h"
+#include "err.h"
 #include "ring_buff.h"
 #include "bsp_conf.h"
 #include "stm32wbxx.h"

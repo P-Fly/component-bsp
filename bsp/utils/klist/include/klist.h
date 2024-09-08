@@ -1,5 +1,5 @@
 /**
- * @file list.h
+ * @file klist.h
  * @brief A doubly linked list implementation.
  * @author Peter.Peng <27144363@qq.com>
  * @date 2022
@@ -21,8 +21,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __LIST_H__
-#define __LIST_H__
+#ifndef __KLIST_H__
+#define __KLIST_H__
 
 /**
  * @defgroup list List
@@ -888,4 +888,4 @@ static inline size_t list_count_nodes(struct list_head* head)
  * @}
  */
 
-#endif /* __LIST_H__ */
+#endif /* __KLIST_H__ */

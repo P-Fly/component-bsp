@@ -24,6 +24,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-extern int32_t cunit_list_register_suite_and_case(void);
+extern int32_t cunit_klist_register_suite_and_case(void);
 
 #endif /* __CUNIT_LIST_H__ */

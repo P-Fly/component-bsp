@@ -22,17 +22,17 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "err.h"
-#include "list.h"
+#include "klist.h"
 #include "CUnit/CUnit.h"
 #include "CUnit/Basic.h"
-#include "cunit_list.h"
+#include "cunit_klist.h"
 
-static int cunit_list_initialize(void)
+static int cunit_klist_initialize(void)
 {
     return 0;
 }
 
-static int cunit_list_cleanup(void)
+static int cunit_klist_cleanup(void)
 {
     return 0;
 }
@@ -43,7 +43,7 @@ typedef struct
     uint32_t            data;
 } data_node_t;
 
-static void cunit_list_add_and_delete(void)
+static void cunit_klist_add_and_delete(void)
 {
     LIST_HEAD(head);
     data_node_t* node;
@@ -99,22 +99,22 @@ static void cunit_list_add_and_delete(void)
     CU_ASSERT_TRUE(list_empty(&head));
 }
 
-int32_t cunit_list_register_suite_and_case(void)
+int32_t cunit_klist_register_suite_and_case(void)
 {
     CU_pSuite new_suite;
     CU_pTest new_test;
 
-    new_suite = CU_add_suite("list",
-                             cunit_list_initialize,
-                             cunit_list_cleanup);
+    new_suite = CU_add_suite("klist",
+                             cunit_klist_initialize,
+                             cunit_klist_cleanup);
     if (!new_suite)
     {
         return -EINVAL;
     }
 
     new_test = CU_add_test(new_suite,
-                           "list_add_and_delete",
-                           cunit_list_add_and_delete);
+                           "klist_add_and_delete",
+                           cunit_klist_add_and_delete);
     if (!new_test)
     {
         return -EINVAL;

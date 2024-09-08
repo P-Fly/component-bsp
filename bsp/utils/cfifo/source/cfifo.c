@@ -3,6 +3,13 @@
 #include <assert.h>
 #include "err.h"
 #include "cfifo.h"
+#ifdef USE_CMSIS
+#include "cmsis_os.h"
+#else
+#ifndef   __memory_changed
+  #define __memory_changed() __sync_synchronize()
+#endif
+#endif
 
 void cfifo_init(cfifo* fifo, uint8_t* buffer, uint32_t buf_len)
 {
@@ -27,7 +34,7 @@ int32_t cfifo_put(cfifo* fifo, uint8_t* buffer, uint32_t buf_len)
         return -EFULL;
     }
 
-    __sync_synchronize();
+    __memory_changed();
 
     uint32_t write = fifo->write % fifo->size;
     uint32_t bytesToTheEnd = fifo->size - write;
@@ -43,7 +50,7 @@ int32_t cfifo_put(cfifo* fifo, uint8_t* buffer, uint32_t buf_len)
                      buf_len - bytesToTheEnd);
     }
 
-    __sync_synchronize();
+    __memory_changed();
 
     fifo->write += buf_len;
 
@@ -61,7 +68,7 @@ int32_t cfifo_pop(cfifo* fifo, uint8_t* buffer, uint32_t buf_len)
         return -EEMPTY;
     }
 
-    __sync_synchronize();
+    __memory_changed();
 
     uint32_t read = fifo->read % fifo->size;
     uint32_t bytesToTheEnd = fifo->size - read;
@@ -77,7 +84,7 @@ int32_t cfifo_pop(cfifo* fifo, uint8_t* buffer, uint32_t buf_len)
                      buf_len - bytesToTheEnd);
     }
 
-    __sync_synchronize();
+    __memory_changed();
 
     fifo->read += buf_len;
 
@@ -99,7 +106,7 @@ int32_t cfifo_peek(cfifo*       fifo,
         return -EEMPTY;
     }
 
-    __sync_synchronize();
+    __memory_changed();
 
     uint32_t read = fifo->read % fifo->size;
 
@@ -131,7 +138,7 @@ int32_t cfifo_peek_to_buf(cfifo* fifo, uint8_t* buffer, uint32_t buf_len)
         return -EEMPTY;
     }
 
-    __sync_synchronize();
+    __memory_changed();
 
     uint32_t read = fifo->read % fifo->size;
     uint32_t bytesToTheEnd = fifo->size - read;

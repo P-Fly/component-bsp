@@ -13,7 +13,7 @@ INPUT                 = index.doxygen \
                         @top_srcdir@/bsp/include \
                         @top_srcdir@/bsp/utils/ring_buff/include \
                         @top_srcdir@/bsp/utils/signal_generator/include \
-                        @top_srcdir@/bsp/utils/list/include \
+                        @top_srcdir@/bsp/utils/klist/include \
 						@top_srcdir@/bsp/utils/cfifo/include
 # EXCLUDE               =
 # EXAMPLE_PATH          =

@@ -7,7 +7,7 @@
 #include "CUnit/Basic.h"
 #include "cunit_ring_buff.h"
 #include "cunit_signal_generator.h"
-#include "cunit_list.h"
+#include "cunit_klist.h"
 #include "cunit_cfifo.h"
 
 int main(void)
@@ -33,7 +33,7 @@ int main(void)
         return ret;
     }
 
-    ret = cunit_list_register_suite_and_case();
+    ret = cunit_klist_register_suite_and_case();
     if (ret)
     {
         return ret;
